@@ -131,9 +131,13 @@ tailwind.config = {
 <!-- ════════════════════ NAV ════════════════════ -->
 <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-3 px-6">
   <div class="max-w-6xl mx-auto flex items-center justify-between h-14">
-    <!-- Logo -->
-    <a href="#hero" class="flex items-center group">
-      <img id="logoImg" src="" alt="The Viet Kitchen" class="h-10 w-auto object-contain transition-opacity" style="filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));">
+    <!-- Logo + Nom -->
+    <a href="#hero" class="flex items-center gap-3 group">
+      <img id="logoImg" src="" alt="The Viet Kitchen" class="h-9 w-auto object-contain transition-opacity flex-shrink-0" style="filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));">
+      <div class="flex flex-col leading-tight">
+        <span class="text-white font-bold text-sm tracking-wide" style="font-family:'Plus Jakarta Sans',sans-serif;">The Viet</span>
+        <span class="text-white/70 font-medium text-xs tracking-widest uppercase" style="font-family:'Plus Jakarta Sans',sans-serif;">Kitchen</span>
+      </div>
     </a>
 
     <!-- Desktop Links -->
@@ -212,24 +216,35 @@ tailwind.config = {
 
 
 <!-- ════════════════════ STATS BAND ════════════════════ -->
-<div class="bg-charbon border-y border-white/5 py-10 px-6">
-  <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
-    <div class="stats-card text-center py-6 px-4 rounded-xl border border-white/5 bg-surface/60 hover:border-rouge/30 transition-all duration-300">
-      <div class="font-display text-4xl text-rouge mb-1" style="font-family:'Alfa Slab One',serif;">100%</div>
-      <div class="text-white/60 text-xs uppercase tracking-widest mt-1">Fait Maison</div>
+<div class="bg-[#0a0a09] border-y border-white/5 py-6 px-6">
+  <div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 flex-wrap">
+
+    <!-- 100% Fait Maison -->
+    <div class="stats-card inline-flex items-center gap-3 px-5 py-3 rounded-full bg-surface border border-white/8 hover:border-rouge/30 transition-all duration-300">
+      <span class="text-rouge text-base">✦</span>
+      <span class="text-white/80 text-sm font-medium" style="font-family:'Plus Jakarta Sans',sans-serif;">100% Fait Maison</span>
     </div>
-    <div class="stats-card text-center py-6 px-4 rounded-xl border border-white/5 bg-surface/60 hover:border-rouge/30 transition-all duration-300">
-      <div class="font-display text-4xl text-rouge mb-1" style="font-family:'Alfa Slab One',serif;">3</div>
-      <div class="text-white/60 text-xs uppercase tracking-widest mt-1">Services disponibles</div>
+
+    <!-- Séparateur desktop -->
+    <span class="hidden sm:block text-white/15 text-lg">·</span>
+
+    <!-- Note Google -->
+    <div class="stats-card inline-flex items-center gap-2.5 px-5 py-3 rounded-full bg-surface border border-white/8 hover:border-or/30 transition-all duration-300">
+      <svg viewBox="0 0 24 24" class="w-4 h-4 flex-shrink-0" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+      <span class="text-white/80 text-sm font-semibold" style="font-family:'Plus Jakarta Sans',sans-serif;">4,9</span>
+      <span class="text-or text-xs tracking-wider">★★★★★</span>
+      <span class="text-white/40 text-xs">sur Google</span>
     </div>
-    <div class="stats-card text-center py-6 px-4 rounded-xl border border-white/5 bg-surface/60 hover:border-rouge/30 transition-all duration-300">
-      <div class="font-display text-4xl text-or mb-1" style="font-family:'Alfa Slab One',serif;">★★★★★</div>
-      <div class="text-white/60 text-xs uppercase tracking-widest mt-1">Avis Google</div>
+
+    <!-- Séparateur desktop -->
+    <span class="hidden sm:block text-white/15 text-lg">·</span>
+
+    <!-- Bo Bun Signature -->
+    <div class="stats-card inline-flex items-center gap-3 px-5 py-3 rounded-full bg-surface border border-white/8 hover:border-rouge/30 transition-all duration-300">
+      <span class="text-base">🍜</span>
+      <span class="text-white/80 text-sm font-medium" style="font-family:'Plus Jakarta Sans',sans-serif;">Bo Bun Signature</span>
     </div>
-    <div class="stats-card text-center py-6 px-4 rounded-xl border border-white/5 bg-surface/60 hover:border-rouge/30 transition-all duration-300">
-      <div class="font-display text-4xl text-rouge mb-1" style="font-family:'Alfa Slab One',serif;">🍜</div>
-      <div class="text-white/60 text-xs uppercase tracking-widest mt-1">Bo Bun Signature</div>
-    </div>
+
   </div>
 </div>
 
@@ -586,21 +601,11 @@ tailwind.config = {
 
 
 <!-- ════════════════════ AMBIANCE BAND ════════════════════ -->
-<div id="ambianceBand" class="relative overflow-hidden" style="height: 420px; background:#111110;">
-  <!-- Mobile: full bleed (inchangé) -->
-  <div id="ambianceBg" class="md:hidden absolute inset-0 scale-110" style="background-size:cover; background-position: center 30%; filter: brightness(0.45) saturate(1.2);"></div>
-  <!-- Desktop: image centrée, réduite, fondue sur les côtés -->
-  <div class="hidden md:block absolute inset-0">
-    <div class="absolute inset-0 flex items-stretch justify-center">
-      <div class="relative" style="width:320px;">
-        <div id="ambianceBgDesktop" class="absolute inset-0" style="background-size:cover; background-position:center 25%; filter:brightness(0.5) saturate(1.2);"></div>
-        <div class="absolute inset-y-0 left-0 w-20" style="background:linear-gradient(to right,#111110,transparent);"></div>
-        <div class="absolute inset-y-0 right-0 w-20" style="background:linear-gradient(to left,#111110,transparent);"></div>
-      </div>
-    </div>
-    <div class="absolute inset-y-0 left-0 right-1/2 -mr-40" style="background:linear-gradient(to right,#111110 70%,transparent);"></div>
-    <div class="absolute inset-y-0 right-0 left-1/2 -ml-40" style="background:linear-gradient(to left,#111110 70%,transparent);"></div>
-  </div>
+<div id="ambianceBand" class="relative overflow-hidden" style="height: 420px;">
+  <!-- Image plein écran mobile ET desktop -->
+  <div id="ambianceBg" class="absolute inset-0 scale-110" style="background-size:cover; background-position: center 30%; filter: brightness(0.42) saturate(1.2);"></div>
+  <!-- Overlay dégradé pour lisibilité du texte -->
+  <div class="absolute inset-0" style="background: linear-gradient(to bottom, rgba(10,10,9,0.3) 0%, rgba(10,10,9,0.15) 40%, rgba(10,10,9,0.5) 100%);"></div>
   <!-- Texte centré (mobile + desktop) -->
   <div class="relative z-10 h-full flex items-center justify-center text-center px-6">
     <div class="reveal">
@@ -621,16 +626,23 @@ tailwind.config = {
 
     <div class="text-center mb-16 reveal">
       <p class="text-rouge text-sm font-semibold tracking-widest uppercase mb-3">Ce qu'ils disent</p>
-      <h2 class="text-4xl md:text-5xl text-creme mb-4 font-extrabold" style="font-family:'Plus Jakarta Sans',sans-serif; letter-spacing:-0.02em;">Ils ont testé,<br>ils ont adoré</h2>
-      <div class="gold-line max-w-xs mx-auto mt-6"></div>
+      <h2 class="text-4xl md:text-5xl text-creme mb-5 font-extrabold" style="font-family:'Plus Jakarta Sans',sans-serif; letter-spacing:-0.02em;">Ils ont testé,<br>ils ont adoré</h2>
+      <!-- Note globale -->
+      <div class="inline-flex items-center gap-3 px-5 py-3 rounded-full bg-surface border border-white/8 mb-2">
+        <svg viewBox="0 0 24 24" class="w-4 h-4 flex-shrink-0" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        <span class="text-white font-semibold text-sm" style="font-family:'Plus Jakarta Sans',sans-serif;">4,9</span>
+        <span class="text-or text-sm tracking-wider">★★★★★</span>
+        <span class="text-gris text-xs">sur Google</span>
+      </div>
+      <div class="gold-line max-w-xs mx-auto mt-5"></div>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
       <div class="reveal bg-surface rounded-2xl p-7 border border-white/5 flex flex-col hover:border-white/10 transition-all duration-300 hover:shadow-xl hover:-translate-y-1" style="transition-delay:0.05s">
-        <div class="flex items-center justify-between mb-4">
-          <div class="stars text-base">★★★★★</div>
-          <svg viewBox="0 0 24 24" class="w-5 h-5 flex-shrink-0" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        <div class="flex items-center justify-between mb-4 flex-wrap gap-2">
+          <div class="stars text-sm">★★★★★</div>
+          <svg viewBox="0 0 24 24" class="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
         </div>
         <blockquote class="text-white/80 text-sm leading-relaxed flex-grow italic mb-5">
           "Le repas vietnamien de qualité qui ne manque pas de quantité ! Accueil et service des plus agréables."
@@ -645,9 +657,9 @@ tailwind.config = {
       </div>
 
       <div class="reveal bg-surface rounded-2xl p-7 border border-rouge/20 ring-1 ring-rouge/10 flex flex-col hover:border-rouge/40 transition-all duration-300 hover:shadow-xl hover:-translate-y-1" style="transition-delay:0.12s">
-        <div class="flex items-center justify-between mb-4">
-          <div class="stars text-base">★★★★★</div>
-          <svg viewBox="0 0 24 24" class="w-5 h-5 flex-shrink-0" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        <div class="flex items-center justify-between mb-4 flex-wrap gap-2">
+          <div class="stars text-sm">★★★★★</div>
+          <svg viewBox="0 0 24 24" class="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
         </div>
         <blockquote class="text-white/80 text-sm leading-relaxed flex-grow italic mb-5">
           "Meilleurs et plus copieux Bo-bun que j'ai pu manger ces dernières années. Je recommande, ils sont super sympa."
@@ -662,9 +674,9 @@ tailwind.config = {
       </div>
 
       <div class="reveal bg-surface rounded-2xl p-7 border border-white/5 flex flex-col hover:border-white/10 transition-all duration-300 hover:shadow-xl hover:-translate-y-1" style="transition-delay:0.22s">
-        <div class="flex items-center justify-between mb-4">
-          <div class="stars text-base">★★★★★</div>
-          <svg viewBox="0 0 24 24" class="w-5 h-5 flex-shrink-0" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        <div class="flex items-center justify-between mb-4 flex-wrap gap-2">
+          <div class="stars text-sm">★★★★★</div>
+          <svg viewBox="0 0 24 24" class="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
         </div>
         <blockquote class="text-white/80 text-sm leading-relaxed flex-grow italic mb-5">
           "Rapport qualité-prix incroyable. Tout est fait maison et avec le sourire."
@@ -701,18 +713,21 @@ tailwind.config = {
     <!-- Grid: carte + infos -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 reveal">
 
-      <!-- Carte dark OpenStreetMap -->
-      <div class="rounded-2xl overflow-hidden border border-white/8" style="height:320px; position:relative;">
+      <!-- Carte Google Maps -->
+      <div class="rounded-2xl overflow-hidden border border-white/8 relative" style="height:320px;">
         <iframe
-          src="https://www.openstreetmap.org/export/embed.html?bbox=1.4450,43.5760,1.4650,43.5860&layer=mapnik&marker=43.5810,1.4550"
-          style="width:100%; height:100%; border:0; filter: invert(90%) hue-rotate(180deg) brightness(0.85) saturate(0.9);"
+          src="https://maps.google.com/maps?q=The+Viet+Kitchen+Toulouse&t=&z=17&ie=UTF8&iwloc=&output=embed"
+          style="width:100%; height:100%; border:0;"
+          allowfullscreen=""
           loading="lazy"
-          title="The Viet Kitchen sur la carte">
+          referrerpolicy="no-referrer-when-downgrade"
+          title="The Viet Kitchen – 81 Route de Narbonne Toulouse">
         </iframe>
-        <div class="absolute bottom-0 left-0 right-0 p-4" style="background:linear-gradient(to top, rgba(10,10,9,0.95), transparent);">
-          <div class="flex items-center gap-2 text-xs text-gris">
-            <svg class="w-3.5 h-3.5 text-rouge" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-            À 5 min à pied du campus Paul Sabatier
+        <!-- Overlay bas avec adresse -->
+        <div class="absolute bottom-0 left-0 right-0 p-3 pointer-events-none" style="background:linear-gradient(to top, rgba(10,10,9,0.9) 60%, transparent);">
+          <div class="flex items-center gap-2 text-xs text-white/70">
+            <svg class="w-3.5 h-3.5 text-rouge flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            81 Rte de Narbonne · À deux pas du campus Paul Sabatier
           </div>
         </div>
       </div>
