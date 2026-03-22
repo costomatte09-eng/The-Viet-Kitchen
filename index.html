@@ -61,10 +61,23 @@
   ]
 }
 </script>
-<script src="https://cdn.tailwindcss.com"></script>
+<!-- Preconnect critiques -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://maps.googleapis.com">
+<link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+
+<!-- Préchargement de l'image LCP (hero) en WebP prioritaire -->
+<link rel="preload" as="image" href="img/hero.webp" fetchpriority="high" type="image/webp">
+<!-- Préchargement du logo (above-the-fold) -->
+<link rel="preload" as="image" href="img/logo.png" type="image/png">
+
+<!-- Google Fonts : display=swap déjà présent, on ajoute preload de la feuille CSS -->
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"></noscript>
+
+<!-- Tailwind CDN : ne peut pas être différé sans FOUC — chargement synchrone maintenu -->
+<script src="https://cdn.tailwindcss.com"></script>
 <script>
 tailwind.config = {
   theme: {
@@ -170,7 +183,7 @@ tailwind.config = {
 <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-3 px-6">
   <div class="max-w-6xl mx-auto flex items-center justify-between h-14">
     <a href="#hero" class="flex items-center gap-3 group">
-      <img src="img/logo.png" alt="The Viet Kitchen" class="h-9 w-auto object-contain transition-opacity flex-shrink-0" style="filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));">
+      <img src="img/logo.png" alt="The Viet Kitchen" width="36" height="58" class="h-9 w-auto object-contain transition-opacity flex-shrink-0" style="filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));" decoding="async">
       <div class="flex flex-col leading-tight">
         <span class="text-white font-bold text-sm tracking-wide" style="font-family:'Plus Jakarta Sans',sans-serif;">The Viet</span>
         <span class="text-white/70 font-medium text-xs tracking-widest uppercase" style="font-family:'Plus Jakarta Sans',sans-serif;">Kitchen</span>
@@ -200,13 +213,13 @@ tailwind.config = {
 
 <!-- ════════════════════ HERO ════════════════════ -->
 <section id="hero" class="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
-  <div id="heroBg" class="absolute inset-0 bg-cover bg-center" style="background-image: url('img/hero.jpg'); background-attachment:fixed;"></div>
+  <div id="heroBg" class="absolute inset-0 bg-cover bg-center" style="background-image: url('img/hero.webp'); background-attachment:fixed;"></div>
   <div class="absolute inset-0" style="background: linear-gradient(to bottom, rgba(10,10,8,0.75) 0%, rgba(10,10,8,0.45) 40%, rgba(10,10,8,0.85) 100%);"></div>
   <div class="absolute inset-0" style="background: radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.4) 100%);"></div>
   <div class="absolute top-0 left-0 right-0 h-0.5 bg-rouge z-10"></div>
   <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
     <div class="hero-logo-anim mb-6 flex justify-center">
-      <img id="heroLogoIcon" src="img/logo.png" alt="Logo" class="h-24 md:h-32 w-auto object-contain" style="filter: drop-shadow(0 4px 20px rgba(192,57,43,0.5));">
+      <img id="heroLogoIcon" src="img/logo.png" alt="Logo The Viet Kitchen" width="128" height="207" class="h-24 md:h-32 w-auto object-contain" fetchpriority="high" decoding="sync" style="filter: drop-shadow(0 4px 20px rgba(192,57,43,0.5));">
     </div>
     <div class="hero-badge-anim mb-6">
       <span class="inline-block badge-rouge">Toulouse · 81 rte de Narbonne</span>
@@ -345,7 +358,7 @@ tailwind.config = {
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div class="plat-card bg-surface rounded-2xl overflow-hidden border border-white/5">
-          <div class="h-48 bg-cover bg-center" style="background-image: url('img/bo-bun.jpg');"></div>
+          <picture><source srcset="img/bo-bun.webp" type="image/webp"><img src="img/bo-bun.jpg" alt="Bo Bun Nems et Bœuf" width="600" height="192" class="h-48 w-full object-cover" loading="lazy" decoding="async"></picture>
           <div class="p-6">
             <div class="flex items-start justify-between mb-3">
               <div><span class="badge-rouge inline-block mb-2">Le Classique</span><h3 class="text-xl font-bold text-creme mt-2" style="font-family:'Plus Jakarta Sans',sans-serif;">Nems & Bœuf</h3></div>
@@ -355,7 +368,7 @@ tailwind.config = {
           </div>
         </div>
         <div class="plat-card bg-surface rounded-2xl overflow-hidden border border-rouge/20 ring-1 ring-rouge/30">
-          <div class="h-48 bg-cover bg-center" style="background-image: url('img/bo-bun.jpg');"></div>
+          <picture><source srcset="img/bo-bun.webp" type="image/webp"><img src="img/bo-bun.jpg" alt="Bo Bun Crousti Crevette" width="600" height="192" class="h-48 w-full object-cover" loading="lazy" decoding="async"></picture>
           <div class="p-6">
             <div class="flex items-start justify-between mb-3">
               <div><span class="badge-or inline-block mb-2">★ Le Coup de Cœur</span><h3 class="text-xl font-bold text-creme mt-2" style="font-family:'Plus Jakarta Sans',sans-serif;">Crousti Crevette</h3></div>
@@ -365,7 +378,7 @@ tailwind.config = {
           </div>
         </div>
         <div class="plat-card bg-surface rounded-2xl overflow-hidden border border-white/5">
-          <div class="h-48 bg-cover bg-center" style="background-image: url('img/bo-bun.jpg');"></div>
+          <picture><source srcset="img/bo-bun.webp" type="image/webp"><img src="img/bo-bun.jpg" alt="Bo Bun Légumes végétarien" width="600" height="192" class="h-48 w-full object-cover" loading="lazy" decoding="async"></picture>
           <div class="p-6">
             <div class="flex items-start justify-between mb-3">
               <div><span class="badge-or inline-block mb-2">Végétarien</span><h3 class="text-xl font-bold text-creme mt-2" style="font-family:'Plus Jakarta Sans',sans-serif;">Nems Légumes</h3></div>
@@ -395,7 +408,7 @@ tailwind.config = {
           </div>
         </div>
         <div class="plat-card bg-surface rounded-2xl overflow-hidden border border-white/5 md:col-span-1">
-          <div class="bg-cover bg-center" style="height:200px; background-image: url('img/porc-caramel.jpg'); background-position:center 60%;"></div>
+          <picture><source srcset="img/porc-caramel.webp" type="image/webp"><img src="img/porc-caramel.jpg" alt="Porc Caramel au nuoc-mâm" width="600" height="200" class="w-full object-cover" style="height:200px; object-position:center 60%;" loading="lazy" decoding="async"></picture>
           <div class="p-7 flex gap-5">
             <div class="flex-shrink-0 w-12 h-12 rounded-full bg-or/10 flex items-center justify-center text-or text-xl">🐷</div>
             <div>
@@ -405,7 +418,7 @@ tailwind.config = {
           </div>
         </div>
         <div class="plat-card bg-surface rounded-2xl overflow-hidden border border-rouge/20">
-          <div class="bg-cover bg-center" style="height:200px; background-image: url('img/nouilles.jpg');"></div>
+          <picture><source srcset="img/nouilles.webp" type="image/webp"><img src="img/nouilles.jpg" alt="Nouilles de blé sautées au wok" width="600" height="200" class="w-full object-cover" style="height:200px;" loading="lazy" decoding="async"></picture>
           <div class="p-7">
             <div class="flex justify-between items-start mb-3">
               <div><span class="badge-rouge inline-block mb-2">Nouilles Fraîches</span><h3 class="font-bold text-lg text-creme mt-1" style="font-family:'Plus Jakarta Sans',sans-serif;">Nouilles de Blé Sautées</h3></div>
@@ -468,7 +481,7 @@ tailwind.config = {
 
 <!-- ════════════════════ AMBIANCE BAND ════════════════════ -->
 <div class="relative overflow-hidden" style="height: 420px;">
-  <div class="absolute inset-0 scale-110" style="background-image: url('img/ambiance.jpg'); background-size:cover; background-position: center 30%; filter: brightness(0.42) saturate(1.2);"></div>
+  <div class="absolute inset-0 scale-110" style="background-image: url('img/ambiance.webp'); background-size:cover; background-position: center 30%; filter: brightness(0.42) saturate(1.2);"></div>
   <div class="absolute inset-0" style="background: linear-gradient(to bottom, rgba(10,10,9,0.3) 0%, rgba(10,10,9,0.15) 40%, rgba(10,10,9,0.5) 100%);"></div>
   <div class="relative z-10 h-full flex items-center justify-center text-center px-6">
     <div class="reveal">
@@ -617,9 +630,13 @@ tailwind.config = {
       else if (offset > 0) { offset -= HALF_W; track.style.transition = 'none'; track.style.transform = `translateX(${offset}px)`; }
     }
     function collapseHiddenCards() {
+      // Lecture groupée (évite forced reflow entrelacé lecture/écriture)
       const vpRect = vp.getBoundingClientRect();
-      track.querySelectorAll('.review-card.expanded').forEach(card => {
-        const r = card.getBoundingClientRect();
+      const expanded = Array.from(track.querySelectorAll('.review-card.expanded'));
+      const rects = expanded.map(card => card.getBoundingClientRect()); // batch READ
+      // Écritures DOM séparées des lectures
+      expanded.forEach((card, i) => {
+        const r = rects[i];
         if (r.right < vpRect.left || r.left > vpRect.right) {
           card.classList.remove('expanded');
           card.classList.add('truncated');
@@ -718,22 +735,22 @@ tailwind.config = {
 <!-- ════════════════════ FOOTER ════════════════════ -->
 <footer class="bg-[#0a0a09] border-t border-white/5 py-10 px-6">
   <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-    <img src="img/logo.png" alt="The Viet Kitchen" class="h-10" style="filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));">
+    <img src="img/logo.png" alt="The Viet Kitchen" width="40" height="65" class="h-10 w-auto" loading="lazy" decoding="async" style="filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));">
     <p class="text-gris text-xs text-center">© 2025 The Viet Kitchen · 81 Rte de Narbonne, Toulouse</p>
     <a href="tel:0981112723" class="text-rouge text-sm font-semibold hover:text-rouge2 transition-colors">09 81 11 27 23</a>
   </div>
 </footer>
 
 <script>
-  // NAV SCROLL
+  // NAV SCROLL — listener passif pour ne pas bloquer le thread principal
   window.addEventListener('scroll', () => {
     const nav = document.getElementById('navbar');
     if (window.scrollY > 60) nav.classList.add('nav-scrolled');
     else nav.classList.remove('nav-scrolled');
-    // Hero parallax
+    // Hero parallax : uniquement si l'élément est visible (évite le travail inutile)
     const heroBg = document.getElementById('heroBg');
     if (heroBg) heroBg.style.transform = `translateY(${window.scrollY * 0.4}px)`;
-  });
+  }, { passive: true }); // passive:true évite le blocage du scroll natif
 
   // MENU MOBILE
   function toggleMenu() {
@@ -752,11 +769,18 @@ tailwind.config = {
     document.getElementById(`tab-${tab}`).style.color = '#f5f0e8';
   }
 
-  // SCROLL REVEAL
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-  document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .stats-card, .stagger-card').forEach(el => observer.observe(el));
+  // SCROLL REVEAL — différé après le chargement pour ne pas retarder le LCP
+  window.addEventListener('load', () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target); // stop d'observer une fois visible
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .stats-card, .stagger-card').forEach(el => observer.observe(el));
+  });
 
   // ONGLET ACTIF PAR DÉFAUT
   document.getElementById('tab-entrees').style.color = '#f5f0e8';
