@@ -285,6 +285,12 @@ tailwind.config = {
   .stats-card:nth-child(3) { transition-delay: 0.2s; }
   .stats-card:nth-child(4) { transition-delay: 0.3s; }
 
+  /* ── Animation bounce (flèche scroll hero) ────────── */
+  @keyframes bounce {
+    0%,100% { transform: translateY(0); }
+    50%     { transform: translateY(8px); }
+  }
+  .bounce { animation: bounce 1.8s infinite; }
 
   /* ── Scrollbar masquée (carrousel avis) ─────────── */
   .no-scrollbar::-webkit-scrollbar { display: none; }
@@ -433,6 +439,15 @@ tailwind.config = {
       </a>
     </div>
   </div>
+
+  <!-- Flèche de scroll (masquée sur très petits écrans) -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 hidden sm:flex flex-col items-center gap-2 bounce opacity-60">
+    <span class="text-xs tracking-widest text-gris uppercase">Scroll</span>
+    <svg width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M8 1v18M1 13l7 7 7-7" stroke="#8a8a85" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+</section>
 
 
 <!-- ════════════════════════════════════════════════════
